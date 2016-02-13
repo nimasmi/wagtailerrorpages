@@ -3,7 +3,6 @@ Wagtail Error Pages
 Pretty, smart, customizable error pages for Wagtail. It was inspired by A List Apart's article on [The Perfect 404](http://alistapart.com/article/perfect404).
 
 ![Default 404 page](screenshots/error404.png)
-![Default 500 page](screenshots/error500.png)
 
 #### Features:
 * Simple language (no jargon)
@@ -11,6 +10,10 @@ Pretty, smart, customizable error pages for Wagtail. It was inspired by A List A
 * Suggests pages by searching the URL
 * Adjusts message depending on where the user came from
 * Customizable
+
+Search
+------
+The 404 page tries to suggest pages the user may be looking for based on the URL entered. If the user doesn't find what they're looking for, they are encouraged to search or visit the home page.
 
 Messages
 --------
@@ -54,6 +57,14 @@ If you just want the 404 page content (message and search box), you can drop it 
     {% message404 %}
 
 This might be useful if you'd prefer to keep the 404 page inside of your site's base layout.
+
+Custom search behavior
+----------------------
+If you'd like to override how the suggestions are shown, import the 404 message in your template like this:
+
+    {% include "wagtailerrorpages/fragments/404message.html" with search_results=MY_PAGES_LIST %}
+
+Then do the search in Python and render the pages list appropriately.
 
 Extending the base404 template
 ------------------------------
