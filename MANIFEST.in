@@ -1,0 +1,2 @@
+recursive-include wagtailerrorpages/static *
+recursive-include wagtailerrorpages/templates *

@@ -1,0 +1,14 @@
+{% load staticfiles %}
+
+<h1>Page not found</h1>
+<p id="error-404">You may be trying to find a page that doesn&rsquo;t exist or has been moved.</p>
+
+<h2>What now?</h2>
+<p>You can search for what you need using the box below, or <a href="/">visit our homepage</a>.
+
+<form method="get" action="{% url "search" %}">
+  <input type="text" name="query" placeholder="What are you looking for?">
+  <input type="submit" value="Search">
+</form>
+
+<script src="{% static "wagtailerrorpages/main.js" %}"></script>

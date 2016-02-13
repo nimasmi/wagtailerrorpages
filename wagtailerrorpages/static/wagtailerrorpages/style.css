@@ -1,0 +1,36 @@
+html {
+  background-color: #eee;
+  font-family: sans-serif;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+body {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+a {
+  color: #0074d9;
+  transition: color 0.15s;
+}
+
+a:hover {
+  color: #269aff;
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  width: 75%;
+}
+
+input[type="submit"] {
+  padding: 0.5rem;
+  width: 20%;
+}
+
+.errorcode {
+  color: rgba(0, 0, 0, 0.25);
+  margin-top: 2rem;
+  font-size: 0.8rem;
+}
