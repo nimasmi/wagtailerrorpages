@@ -1,6 +1,6 @@
 Wagtail Error Pages
 ===================
-Pretty, smart, customize error pages for Wagtail. It was inspired by A List Apart's article on [The Perfect 404](http://alistapart.com/article/perfect404).
+Pretty, smart, customizable error pages for Wagtail. It was inspired by A List Apart's article on [The Perfect 404](http://alistapart.com/article/perfect404).
 
 ![Default 404 page](screenshots/error404.png)
 ![Default 500 page](screenshots/error500.png)
