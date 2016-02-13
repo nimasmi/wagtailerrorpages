@@ -3,6 +3,21 @@
 <h1>Page not found</h1>
 <p id="error-404">You may be trying to find a page that doesn&rsquo;t exist or has been moved.</p>
 
+{% if search_results %}
+<h2>Is this what you&rsquo;re looking for?</h2>
+<p>You may be trying to find one of the pages below.</p>
+<ul>
+  {% for result in search_results %}
+    <li>
+      <h4><a href="{{ result.url }}">{{ result }}</a></h4>
+      {% if result.search_description %}
+        {{ result.search_description|safe }}
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
 <h2>What now?</h2>
 <p>You can search for what you need using the box below, or <a href="/">visit our homepage</a>.
 

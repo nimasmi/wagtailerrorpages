@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles wagtailerrorpages_tags %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +17,7 @@
     [<a href="/">Go home</a>]
   {% endblock %}
   {% block content %}
-    {% include "wagtailerrorpages/fragments/404message.html" %}
+    {% message404 %}
   {% endblock %}
   {% block footer %}{% endblock %}
 </body>

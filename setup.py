@@ -12,7 +12,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
     name='wagtailerrorpages',
     version=__version__,
-    description='Pretty and smart default error pages that you can override and customize.',
+    description='Pretty, smart, customizable error pages for Wagtail.',
     long_description=long_description,
     url='https://github.com/alexgleason/wagtailerrorpages',
     author='Alex Gleason',

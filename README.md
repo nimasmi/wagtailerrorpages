@@ -8,6 +8,7 @@ Pretty, smart, customizable error pages for Wagtail. It was inspired by A List A
 #### Features:
 * Simple language (no jargon)
 * Search box
+* Suggests pages by searching the URL
 * Adjusts message depending on where the user came from
 * Customizable
 
@@ -49,7 +50,8 @@ Using your own layout
 ---------------------
 If you just want the 404 page content (message and search box), you can drop it anywhere with:
 
-    {% include "wagtailerrorpages/fragments/404message.html" %}
+    {% load wagtailerrorpages_tags %}
+    {% message404 %}
 
 This might be useful if you'd prefer to keep the 404 page inside of your site's base layout.
 
@@ -93,7 +95,7 @@ The top part of the page body. By default this contains the "Go home" link. You 
 It's advised that you don't override this without a good reason. It imports the 404 message fragment.
 
     {% block content %}
-      {% include "wagtailerrorpages/fragments/404message.html" %}
+      {% message404 %}
     {% endblock %}
 
 #### Page footer
