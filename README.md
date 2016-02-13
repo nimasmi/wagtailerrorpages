@@ -1,13 +1,19 @@
 Wagtail Error Pages
 ===================
-Pretty and smart default error pages that you can override and customize. It was inspired by A List Apart's article on [The Perfect 404](http://alistapart.com/article/perfect404).
+Pretty, smart, customize error pages for Wagtail. It was inspired by A List Apart's article on [The Perfect 404](http://alistapart.com/article/perfect404).
 
 ![Default 404 page](screenshots/error404.png)
 ![Default 500 page](screenshots/error500.png)
 
-They are intentionally minimalistic and don't include the standard navigation because this is not likely something useful to the lost user; it is a distraction. The ability to return home and the search box are the most important features, as they will bail the user out. If you can include a sitemap at the bottom it is ideal. Use the "Page footer" template block to achieve this (see 404 template reference below).
+#### Features:
+* Simple language (no jargon)
+* Search box
+* Adjusts message depending on where the user came from
+* Customizable
 
-The 404 page will also adjust the message depending on how the user got there. It does this by checking `document.referrer` in JavaScript. If JavaScript is turned off, it will display a generic message.
+Messages
+--------
+Depending on where the user came from, the 404 message will adjust. It determines this based on the `document.referrer` property in JavaScript. If JavaScript is turned off, a generic message will be displayed instead.
 
 Here are the possible messages for **empty referrer**, **external referrer**, **external referrer (search engine)**, and **internal referrer** respectively.
 
@@ -29,7 +35,7 @@ To override and style the 404 page, create a `404.html` in the root of your temp
 
     {% extends "wagtailerrorpages/404base.html" %}
 
-Then, add template blocks to override features of this template. See the section below for a full reference, or refer to `404base.html` inside of this repo.
+Then, add template blocks to override features of this template. See the section below ("Extending the base404 template") for a full reference, or refer to `404base.html` inside of this repo.
 
 #### 500 page
 You can't configure the 500 page. This is by design; if there is a server error, it's possible that Wagtail will not be capable of rendering template tags, so it's best to keep this template self-contained and static.
@@ -39,9 +45,21 @@ If you'd like to make a custom one, copy the one from this app into `templates/5
 #### Testing
 If you used [cookiecutter-wagtail](https://github.com/torchbox/cookiecutter-wagtail), you can visit `/test404` and `/test500` on your site in debug mode to preview the templates. If not, you can [configure your urls.py](https://github.com/torchbox/cookiecutter-wagtail/blob/23d5dd7a7ba1e442f6c8c5526d211900d05030ef/%7B%7Bcookiecutter.repo_name%7D%7D/%7B%7Bcookiecutter.repo_name%7D%7D/urls.py#L23) to allow this.
 
-404 Page Template Blocks
-------------------------
-Use these features to override certain aspects of the 404 template.
+Using your own layout
+---------------------
+If you just want the 404 page content (message and search box), you can drop it anywhere with:
+
+    {% include "wagtailerrorpages/fragments/404message.html" %}
+
+This might be useful if you'd prefer to keep the 404 page inside of your site's base layout.
+
+Extending the base404 template
+------------------------------
+If you extend the base404 template with:
+
+    {% extends "wagtailerrorpages/404base.html" %}
+
+You have the ability to override parts of the page. The following is a reference for the layout's overridable template blocks.
 
 #### Document title
 Override the page title in the browser tab. It's a good idea to add the website's name at the end.
