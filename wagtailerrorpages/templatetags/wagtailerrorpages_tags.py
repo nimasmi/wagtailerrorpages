@@ -1,6 +1,11 @@
 from django import template
 from wagtail.wagtailcore.models import Page
-from urllib.parse import unquote_plus
+try:
+    # Python 3
+    from urllib.parse import unquote_plus
+except ImportError:
+    # Python 2
+    from urllib import unquote_plus
 
 register = template.Library()
 
