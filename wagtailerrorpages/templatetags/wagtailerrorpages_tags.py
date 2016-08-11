@@ -14,7 +14,7 @@ register = template.Library()
 def message404(context):
     url_path = context['request'].path_info
     search_query = unquote_plus(url_path).replace('/', ' ')
-    search_results = Page.objects.live().search(search_query)
+    search_results = Page.objects.live().public().search(search_query)
 
     return {
         'search_query': search_query,
